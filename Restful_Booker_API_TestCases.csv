@@ -1,0 +1,21 @@
+Test Case ID,Endpoint,HTTP Method,Test Scenario,Test Type,Priority,Expected Status Code
+TC-AUT-001,/auth,POST,Create token with valid credentials,Positive,Critical,200 OK
+TC-AUT-002,/auth,POST,Create token with missing username,Negative,Critical,200 OK
+TC-AUT-003,/auth,POST,Create token with wrong password,Negative,Critical,200 OK
+TC-AUT-004,/auth,POST,SQL injection in username,Security,Critical,200 OK
+TC-PNG-001,/ping,GET,Health check returns 201,Positive,Critical,201 Created
+TC-GBK-001,/booking,GET,Get all booking IDs,Positive,Critical,200 OK
+TC-GBK-002,/booking,GET,Filter by firstname,Positive,High,200 OK
+TC-GBI-001,/booking/:id,GET,Get booking by valid ID,Positive,Critical,200 OK
+TC-GBI-002,/booking/:id,GET,Get non-existent booking,Negative,Critical,404 Not Found
+TC-CBK-001,/booking,POST,Create booking with all fields,Positive,Critical,200 OK
+TC-CBK-002,/booking,POST,Create booking without firstname,Negative,Critical,500
+  TC-CBK-003,/booking,POST,SQL injection in firstname,Security,Critical,200 OK
+  TC-UBK-001,/booking/:id,PUT,Update with valid token,Positive,Critical,200 OK
+  TC-UBK-002,/booking/:id,PUT,Update without auth,Security,Critical,403 Forbidden
+  TC-PBK-001,/booking/:id,PATCH,Partial update firstname,Positive,Critical,200 OK
+  TC-PBK-002,/booking/:id,PATCH,Partial update without auth,Security,Critical,403 Forbidden
+  TC-DBK-001,/booking/:id,DELETE,Delete with valid token,Positive,Critical,201 Created
+  TC-DBK-002,/booking/:id,DELETE,Delete without auth,Security,Critical,403 Forbidden
+  TC-INT-001,/auth+/booking,POST+POST,Auth then create booking,Integration,Critical,200+200
+    TC-INT-002,/booking+/booking/:id,POST+GET,Create then retrieve booking,Integration,Critical,200+200
