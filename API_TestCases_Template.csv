@@ -1,0 +1,2 @@
+Test Case ID,Endpoint,HTTP Method,Test Scenario,Test Type,Priority,Preconditions,Request Headers,Request Body,Expected Status Code,Expected Response,Actual Status Code,Actual Response,Pass/Fail,Defect ID,Tested By,Test Date,Notes
+TC-AUTH-001,/api/v1/auth/login,POST,Login with valid email and password,Positive,Critical,User account exists,Content-Type: application/json,Valid credentials,200 OK,access_token and refresh_token returned,,,,,,
